@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import Expo from 'expo';
 
 export default class App extends React.Component {
@@ -28,9 +28,9 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <View style={styles.container} onPress={this.onPress}>
+      <TouchableOpacity style={styles.container} onPress={this.onPress}>
         <Text style={styles.number} >{this.state.text}</Text>
-      </View >
+      </TouchableOpacity>
     );
   }
 }
