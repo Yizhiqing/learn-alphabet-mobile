@@ -6,6 +6,7 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      lowerCase: '',
       text: 'Start',
     };
   }
@@ -22,6 +23,7 @@ export default class App extends React.Component {
         text = String.fromCharCode(text.charCodeAt(0) + 1);
       }
       this.setState({ text });
+      this.setState({ lowerCase: text.toLowerCase() });
       Expo.Speech.speak(text.toString(), { language: 'en-us' });
     }
   }
@@ -29,6 +31,7 @@ export default class App extends React.Component {
   render() {
     return (
       <TouchableOpacity style={styles.container} onPress={this.onPress}>
+        <Text style={styles.number} >{this.state.lowerCase}</Text>
         <Text style={styles.number} >{this.state.text}</Text>
       </TouchableOpacity>
     );
